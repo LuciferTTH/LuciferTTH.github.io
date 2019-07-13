@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2019/7 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="安装tar.xz文件 自己的安装路径  解压文件到安装路径‘’’xz -d xxx.tar.xztar xxx.tar -C-  /installpath/nodejs   ‘’’  添加环境变量‘’’export NODE_HOME=/installpath/nodejs.xxx.xxexport PATH=$NODE_HOME/bin:$PATH  ‘’’  刷新环境变量文件，使环境变量生效‘">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/14/Linux安装tar.md.xz安装包/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="安装tar.xz文件 自己的安装路径  解压文件到安装路径‘’’xz -d xxx.tar.xztar xxx.tar -C-  /installpath/nodejs   ‘’’  添加环境变量‘’’export NODE_HOME=/installpath/nodejs.xxx.xxexport PATH=$NODE_HOME/bin:$PATH  ‘’’  刷新环境变量文件，使环境变量生效‘">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-13T16:40:53.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="安装tar.xz文件 自己的安装路径  解压文件到安装路径‘’’xz -d xxx.tar.xztar xxx.tar -C-  /installpath/nodejs   ‘’’  添加环境变量‘’’export NODE_HOME=/installpath/nodejs.xxx.xxexport PATH=$NODE_HOME/bin:$PATH  ‘’’  刷新环境变量文件，使环境变量生效‘">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,79 +64,65 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/14/Linux安装tar.md.xz安装包/" class="archive-article-date">
-  <time datetime="2019-07-13T17:48:07.019Z" itemprop="datePublished">Jul 14</time>
+        <section id="main"><article id="post-Linux安装tar.md.xz安装包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/14/Linux安装tar.md.xz安装包/" class="article-date">
+  <time datetime="2019-07-13T17:48:07.019Z" itemprop="datePublished">2019-07-14</time>
 </a>
-      
-    </header>
+    
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/14/Linux系统常用监控工具/" class="archive-article-date">
-  <time datetime="2019-07-13T17:48:07.019Z" itemprop="datePublished">Jul 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/14/ubuntu 18.md.04 安装git/" class="archive-article-date">
-  <time datetime="2019-07-13T17:48:07.019Z" itemprop="datePublished">Jul 14</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/14/hello-world/" class="archive-article-date">
-  <time datetime="2019-07-13T17:00:10.191Z" itemprop="datePublished">Jul 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/14/hello-world/">Hello World</a>
-    </h1>
-  
+        <h1 id="安装tar-xz文件"><a href="#安装tar-xz文件" class="headerlink" title="安装tar.xz文件"></a>安装tar.xz文件</h1><ol>
+<li><p>自己的安装路径</p>
+</li>
+<li><p>解压文件到安装路径<br>‘’’<br>xz -d xxx.tar.xz<br>tar xxx.tar -C-  /installpath/nodejs</p>
+</li>
+</ol>
+<p>‘’’</p>
+<ol start="3">
+<li>添加环境变量<br>‘’’<br>export NODE_HOME=/installpath/nodejs.xxx.xx<br>export PATH=$NODE_HOME/bin:$PATH</li>
+</ol>
+<p>‘’’</p>
+<ol start="4">
+<li>刷新环境变量文件，使环境变量生效<br>‘’’gedit<br>sudo /etc/profile</li>
+</ol>
+<p>‘’’</p>
+<ol start="5">
+<li>检查是否安装成功<br>‘’’<br>node -v</li>
+</ol>
+<p>npm -v</p>
+<p>‘’’</p>
+<ol start="6">
+<li>创建sudo链接<br>‘’’<br>sudo ln -s /usr/local/lib/nodejs/node-$VERSION/bin/node /usr/bin/node<br>sudo ln -s /usr/local/lib/nodejs/node-$VERSION/bin/npm /usr/bin/npm<br>sudo ln -s /usr/local/lib/nodejs/node-$VERSION/bin/npx /usr/bin/npx</li>
+</ol>
+<p>‘’’</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/14/Linux安装tar.md.xz安装包/" data-id="cjy1trdf00000bhlkomhcv6tb" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/07/14/Linux系统常用监控工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
