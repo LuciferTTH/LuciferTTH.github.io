@@ -5,19 +5,19 @@
   
 
   
-  <title>Hexo</title>
+  <title>ubuntu18.04 安装 R3.6 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux系统常用监控工具">
+  <meta name="description" content="ubuntu18.04 安装 R 3.6 删除以前安装的旧版R 123sudo apt purge r-base* r-recommended r-cran-* sudo apt autoremovesudo apt update  添加软件源在网上搜索CRAN找到清华镜像的READ 1sudo gedit /etc/apt/sources.list    在末尾添加 1deb https://c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/07/14/Linux系统常用监控工具/index.html">
+<meta property="og:title" content="ubuntu18.04 安装 R3.6">
+<meta property="og:url" content="http://yoursite.com/2019/07/15/ubuntu18-04-安装-R3-6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Linux系统常用监控工具">
+<meta property="og:description" content="ubuntu18.04 安装 R 3.6 删除以前安装的旧版R 123sudo apt purge r-base* r-recommended r-cran-* sudo apt autoremovesudo apt update  添加软件源在网上搜索CRAN找到清华镜像的READ 1sudo gedit /etc/apt/sources.list    在末尾添加 1deb https://c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-13T14:45:48.154Z">
+<meta property="og:updated_time" content="2019-07-15T04:15:35.230Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="Linux系统常用监控工具">
+<meta name="twitter:title" content="ubuntu18.04 安装 R3.6">
+<meta name="twitter:description" content="ubuntu18.04 安装 R 3.6 删除以前安装的旧版R 123sudo apt purge r-base* r-recommended r-cran-* sudo apt autoremovesudo apt update  添加软件源在网上搜索CRAN找到清华镜像的READ 1sudo gedit /etc/apt/sources.list    在末尾添加 1deb https://c">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,23 +64,50 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Linux系统常用监控工具" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ubuntu18-04-安装-R3-6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/14/Linux系统常用监控工具/" class="article-date">
-  <time datetime="2019-07-13T17:48:07.019Z" itemprop="datePublished">2019-07-14</time>
+    <a href="/2019/07/15/ubuntu18-04-安装-R3-6/" class="article-date">
+  <time datetime="2019-07-15T04:15:07.000Z" itemprop="datePublished">2019-07-15</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu18.04 安装 R3.6
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux系统常用监控工具"><a href="#Linux系统常用监控工具" class="headerlink" title="Linux系统常用监控工具"></a>Linux系统常用监控工具</h1>
+        <h1 id="ubuntu18-04-安装-R-3-6"><a href="#ubuntu18-04-安装-R-3-6" class="headerlink" title="ubuntu18.04 安装 R 3.6"></a>ubuntu18.04 安装 R 3.6</h1><ol>
+<li><p>删除以前安装的旧版R</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge r-base* r-recommended r-cran-* </span><br><span class="line">sudo apt autoremove</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加软件源<br>在网上搜索CRAN找到清华镜像的READ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>在末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb https://cloud.r-project.org/bin/linux/ubuntu disco-cran35/</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>新软件源并安装R<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install r-base</span><br><span class="line">sudo apt-get install r-base-dev</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/Linux系统常用监控工具/" data-id="cjy3vuwtr0002oglkxourrofd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/ubuntu18-04-安装-R3-6/" data-id="cjy3vuwtt0004oglkpmfjpw5k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -89,19 +116,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/07/15/（R语言实战—附录F）处理大数据集/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/15/ubuntu18-04-安装Git/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          （R语言实战—附录F）处理大数据集 
+          ubuntu18.04 安装Git
         
       </div>
     </a>
   
   
-    <a href="/2019/07/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/07/15/（R语言实战—附录F）处理大数据集/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">（R语言实战—附录F）处理大数据集 </div>
     </a>
   
 </nav>

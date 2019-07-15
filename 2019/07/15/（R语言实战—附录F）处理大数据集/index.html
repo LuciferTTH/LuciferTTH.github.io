@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>（R语言实战—附录F）处理大数据集  | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="附录F R语言处理大数据集R将所有对象存储在虚拟内存中，对于大部分人而言，这种设计可以带来很好的交互体验，但是如果要处理大型的数据集，就会影像程序的运行速度，带来和内存相关的错误。 具体的内存限制取决于R的版本（32位或64位）和所使用的操作系统。出现cannot allocate vector of size开头的错误信息则表示超过了内存地址的限制。 在处理大数据集时，尽可能地使用64位版，详见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（R语言实战—附录F）处理大数据集 ">
+<meta property="og:url" content="http://yoursite.com/2019/07/15/（R语言实战—附录F）处理大数据集/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="附录F R语言处理大数据集R将所有对象存储在虚拟内存中，对于大部分人而言，这种设计可以带来很好的交互体验，但是如果要处理大型的数据集，就会影像程序的运行速度，带来和内存相关的错误。 具体的内存限制取决于R的版本（32位或64位）和所使用的操作系统。出现cannot allocate vector of size开头的错误信息则表示超过了内存地址的限制。 在处理大数据集时，尽可能地使用64位版，详见">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-15T04:14:05.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（R语言实战—附录F）处理大数据集 ">
+<meta name="twitter:description" content="附录F R语言处理大数据集R将所有对象存储在虚拟内存中，对于大部分人而言，这种设计可以带来很好的交互体验，但是如果要处理大型的数据集，就会影像程序的运行速度，带来和内存相关的错误。 具体的内存限制取决于R的版本（32位或64位）和所使用的操作系统。出现cannot allocate vector of size开头的错误信息则表示超过了内存地址的限制。 在处理大数据集时，尽可能地使用64位版，详见">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-（R语言实战—附录F）处理大数据集" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/15/（R语言实战—附录F）处理大数据集/" class="article-date">
+  <time datetime="2019-07-15T04:12:47.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （R语言实战—附录F）处理大数据集 
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="附录F-R语言处理大数据集"><a href="#附录F-R语言处理大数据集" class="headerlink" title="附录F R语言处理大数据集"></a>附录F R语言处理大数据集</h1><p>R将所有对象存储在虚拟内存中，对于大部分人而言，这种设计可以带来很好的交互体验，但是如果要处理大型的数据集，就会影像程序的运行速度，带来和内存相关的错误。</p>
+<p>具体的内存限制取决于R的版本（32位或64位）和所使用的操作系统。出现<code>cannot allocate vector of size</code>开头的错误信息则表示超过了内存地址的限制。</p>
+<p>在处理大数据集时，尽可能地使用64位版，详见<code>?Memory</code></p>
+<p>在处理大数据集时，要考虑三个问题：<br>    -  高效执行程序<br>    - 将数据保存到外部避免内存问题<br>    - 用有针对性的统计方法高效地分析海量数据</p>
+<h2 id="高效程序设计"><a href="#高效程序设计" class="headerlink" title="高效程序设计"></a>高效程序设计</h2><p>下面是在处理大型数据集时，有助于提升性能的程序设计建议</p>
+<ul>
+<li>尽可能做向量化计算。用R内建的函数来处理向量、矩阵和列表（例如ifelse、colMeans和rowSums），而且要尽量避免使用循环（for和while）</li>
+<li>用矩阵而不是数据框（矩阵更轻量级）</li>
+<li>在使用read.table()系列函数讲外部数据读取到数据框中时，显式地指定colClasses和nrows，设置<code>comment.char = &quot;&quot;</code>，并用<code>&quot;NULL&quot;</code>表明不需要的列。这可以降低内存的使用量，显著提高处理速度。在将外部数据读入矩阵时，可以用scan()函数。</li>
+<li>正确地初始化对象的大小，而不是通过附加值增大较小的对象</li>
+<li>并行化处理重复、独立和数值密集的任务</li>
+<li>在完整的数据集上运行程序之前，先用数据的子集测试程序，以便优化代码并消除bug。</li>
+<li>删除临时对象和不需要的对象。调用<code>rm(list=ls())</code>会从内存中删除所有的对象，得到一个干净的环境。要删除待定的对象，可以用<code>rm(object)</code>。删除较大对象之后，调用<code>gc()</code>会初始化垃圾回收，保存从内存中清除这些对象。</li>
+<li>Jeromy Anglim在博客文章中“Memory Management in R: A Few Tips and Tricks”(jeromyanglim.blogspot.com)中介绍了<code>.ls.objects()</code>函数，它可以使工作空间中的所有对象按大小（MB）排列。这个函数可以找到内存消耗较大的用户。</li>
+<li>测试程序中的每个函数所消耗的时间。 用Rprof()和summaryRprof()函数就可以完成这个测试。system.time()函数也能用得上。profr和prooftools包提供用于分析测试结果的函数。</li>
+<li>使用编译的外部例行程序来加速程序运行。Rcpp包可以将R对象转换成C++函数；如果需要更加优化的子程序，还可以转换回来。</li>
+</ul>
+<p>在处理大数据集时，提高代码性能只能走到这一步。在遇到内存限制时，我们还可以将数据保存到外部存储器中，并使用特殊的分析方法。</p>
+<h2 id="在内存之外存储数据"><a href="#在内存之外存储数据" class="headerlink" title="在内存之外存储数据"></a>在内存之外存储数据</h2><p>有好几个包可以将数据存储在R的主内存之外。主要的方法是将数据存储在外部数据库中，或是硬盘上的二进制文件中，然后再按需要访问其中的某个部分。</p>
+<table>
+<thead>
+<tr>
+<th align="left">包</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">bigmemory</td>
+<td align="left">支持大型矩阵的创建、存储、访问和操作。矩阵可以分配在共享内存和内存映射文件中</td>
+</tr>
+<tr>
+<td align="left">ff</td>
+<td align="left">提供了一种数据结构，可以将数据保存在硬盘上，但用起来却像是在内存中</td>
+</tr>
+<tr>
+<td align="left">filehash</td>
+<td align="left">实现了一个简单的key-value数据库，用字符串的键值关联到硬盘上存储的数据值</td>
+</tr>
+<tr>
+<td align="left">ncdf, ncdf4</td>
+<td align="left">提供Unidate netCDF数据文件的接口</td>
+</tr>
+<tr>
+<td align="left">RODBC, RMySQL, ROracle, RPostgreSQL, RSQLite</td>
+<td align="left">这些包每一个都可用于访问相应的外部关系型数据库管理系统</td>
+</tr>
+</tbody></table>
+<p>上面介绍的这些包都可用于解决R在保存数据时的内存限制问题。不过，在分析大数据集时，还需要专门的方法在可接受的时间内完成分析。下面会介绍其中最有用的一些。</p>
+<h2 id="用于大数据的分析包"><a href="#用于大数据的分析包" class="headerlink" title="用于大数据的分析包"></a>用于大数据的分析包</h2><p>R有如下几个用于分析大型数据集的包。</p>
+<ul>
+<li>biglm和speedglm包能以内存高效的方式实现大型数据集的线性模型拟合和广义线性模型拟合。</li>
+<li>有好几个包是用来分析bigmemory包生成的大型矩阵的。 biganalytics包提供了K均值聚类、列统计和一个biglm的封装。 bigtabulate包提供了table()、 split()和tapply()功能； bigalgebra包提供了高级的线性代数函数。</li>
+<li>biglars包跟ff配合使用，为在内存中无法放置的大数据提供了最小角回归（ least-angle regression）、 lasso和逐步回归分析</li>
+<li>data.table包提供了data.frame的增强版，包括更快的聚集，更快的有序、重叠范围联接，以及更快根据参考组（无副本）进行列相加、修改和删除。我们可以使用带有大型数据集的data.table结构（例如，内存100GB），它与任意期望得到数据框的R函数都兼容。</li>
+</ul>
+<h2 id="超大数据的全面解决方案"><a href="#超大数据的全面解决方案" class="headerlink" title="超大数据的全面解决方案"></a>超大数据的全面解决方案</h2><p>至少有五个项目旨在方便地使用R来处理TB级数据集，其中有三个是免费开源的（ RHIPE、RHadoop和pbdr），另外两个是商业产品（ Revolution R Enterprise、 RevoScaleR和Oracle R Enterprise）。每个均需要对高性能计算有一定的了解。</p>
+<ul>
+<li><p>RHIPE包（ <a href="http://www.datadr.org）提供了将R和Hadoop（一个基于Java的免费软件架构，用于在分布式环境下处理大数据）深度融合的编程环境。该包的作者还开发了其他的软件，提供了对于非常大的数据集进行“分裂与重组”和数据可视化方法。" target="_blank" rel="noopener">http://www.datadr.org）提供了将R和Hadoop（一个基于Java的免费软件架构，用于在分布式环境下处理大数据）深度融合的编程环境。该包的作者还开发了其他的软件，提供了对于非常大的数据集进行“分裂与重组”和数据可视化方法。</a></p>
+</li>
+<li><p>RHadoop项目提供了R包封装的集合，用于管理和分析Hadoop上的数据。 rmr包在R内部提供了Hadoop的MapReduce功能， rhdfs和rhbase包支持HDFS文件系统和HBASE数据存储上的访问。维基（ <a href="https://github.com/RevolutionAnalytics/RHadoop/wiki）上介绍了该项目并提供了相关教程。需要注意的是RHadoop包必须从GitHub上而不是CRAN上安装" target="_blank" rel="noopener">https://github.com/RevolutionAnalytics/RHadoop/wiki）上介绍了该项目并提供了相关教程。需要注意的是RHadoop包必须从GitHub上而不是CRAN上安装</a></p>
+</li>
+<li><p>pbdR（ programming with big data in R）项目通过一个简单的界面到达可扩展、高性能的库（如MPI、 ScaLAPACK和netCDF4），使其能够在R中进行高级别的数据并行运算。 pbdR软件在大规模计算集群上还支持单线程多数据（ SPMD）模型。可以通过访问<a href="http://r-pbd.org/了解详细信息。" target="_blank" rel="noopener">http://r-pbd.org/了解详细信息。</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/15/（R语言实战—附录F）处理大数据集/" data-id="cjy3vuwu60005oglk50ubql4x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/15/ubuntu18-04-安装-R3-6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ubuntu18.04 安装 R3.6
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/14/Linux系统常用监控工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/15/Linux安装tar-md-xz安装包/">Linux安装tar.md.xz安装包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/ubuntu18-04-安装Git/">ubuntu18.04 安装Git</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/ubuntu18-04-安装-R3-6/">ubuntu18.04 安装 R3.6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/（R语言实战—附录F）处理大数据集/">（R语言实战—附录F）处理大数据集 </a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/14/Linux系统常用监控工具/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
